@@ -2,44 +2,30 @@
 const path = require("path");
 const yargs = require("yargs").argv;
 const fs = require("fs");
+const getBrowser = require("./UTILS/get_browser");
 
 exports.config = {
     seleniumAddress: 'http://localhost:4444/wd/hub',
-    capabilities: {
-        browserName: 'chrome',
-        chromeOptions: {
-            args: ['disable-infobars', 'disable-gpu',
-                'test-type=browser', 'disable-notifications', 'incognito',
-                'disable-application-cache'],
-            prefs: {
-                download: {
-                    'prompt_for_download': false,
-                    'directory_upgrade': true,
-                    'default_directory': "defaultDownloadsRoot"
-                }
-            }
-        },
-        shardTestFiles: false,
-        maxInstances: 2,
-    },
+    
+    capabilities: getBrowser(yargs.b, yargs.i),
     SELENIUM_PROMISE_MANAGER: false,
     specs: [
-        `./EET/eet-spec.js`
+        `./EGE/ege-spec.js`
     ],
 
     onPrepare: function () {
     },
     beforeLaunch: function () {
     },
-    allScriptsTimeout: 900000,
-    getPageTimeout: 900000,
+    allScriptsTimeout: 300000,
+    getPageTimeout: 30000,
     framework: 'jasmine',
     jasmineNodeOpts: {
         showColors: true,
         isVerbose: true,
         realtimeFailure: true,
         includeStackTrace: true,
-        defaultTimeoutInterval:5000000
+        defaultTimeoutInterval:30000
     }, 
     params: {
         timeout:90000

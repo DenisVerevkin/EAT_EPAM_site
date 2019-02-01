@@ -1,11 +1,11 @@
 {
-  "name": "exadel_email_tracking_app",
+  "name": "dverevkin_graduate_app",
   "version": "0.0.1",
   "description": "Application for tracking e-mail's.",
   "scripts": {
-    "pre-tracker": "webdriver-manager start",
+    "pre-graduate": "webdriver-manager start",
     "update": "webdriver-manager update",
-    "tracker": "protractor protractor.config.js"
+    "graduate": "protractor protractor.config.js"
   },
   "dependencies": {
     "json2xls": "^0.1.2",
