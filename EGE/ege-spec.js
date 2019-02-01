@@ -6,7 +6,7 @@ const data = require('../DATA/data');
 
 describe('EGE', () => {
 
-    xdescribe('test 001 Start Page', () => {
+    describe('test 001 Start Page', () => {
         outline (urlList, (url) => {
             it(`Verify that page opens: ${url.url}`, async () => {
                 await utils.openBrowser(url.url); 
@@ -14,7 +14,7 @@ describe('EGE', () => {
         });
     });
 
-    xdescribe('test 002 Start Page', () =>{
+    describe('test 002 Start Page', () =>{
 
         beforeEach(async () => {
             utils.openBrowser(data.url.start);
@@ -49,7 +49,7 @@ describe('EGE', () => {
             utils.openBrowser(data.url.careers);
         });
 
-        xit(`Verify that Department Filter contains 14 options : `, async () => {
+        it(`Verify that Department Filter contains 14 options : `, async () => {
 
             const departmentSelect = element(by.css(world.careers.departmentSelect));
             const expectedDropdown = ["UX и дизайн", "Административные и финансовые", "Анализ данных и цифровые стратегии", "Консалтинг и бизнес-анализ", 
